@@ -32,7 +32,7 @@ def get_token(jwt_token):
         "credentials": {
             "jwt": jwt_token,
             "site": {
-                "contentUrl": "sittableaudemo"
+                "contentUrl": "your_site"
             }
         }
     }
