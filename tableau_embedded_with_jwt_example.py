@@ -1,5 +1,6 @@
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi import FastAPI, HTTPException
+import uvicorn
 import xml.etree.ElementTree as ET
 import jwt
 import datetime
@@ -18,6 +19,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
+    #return {"message": "Hello World"}
     return RedirectResponse(url="/tableau_embed")
 
 
@@ -133,3 +135,7 @@ def tableau_embed():
         </tableau-viz>
     """
     return HTMLResponse(content=html_content)
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    # uvicorn main:app --reload  # Run it from terminal (call this file main.py)
